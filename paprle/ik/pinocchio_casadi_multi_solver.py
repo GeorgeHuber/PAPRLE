@@ -110,7 +110,7 @@ class PinocchioCasadiMultiIKSolver(BaseIKSolver):
             self.prefer_cost = casadi.sumsqr(self.var_q[idxs] - np.array(values))
             self.opti.minimize(30 * self.translational_cost + self.rotation_cost + 0.02 * self.regularization_cost + 0.1 * self.smooth_cost + 0.1 * self.prefer_cost)
         else:
-            self.opti.minimize(50 * self.translational_cost + self.rotation_cost + 0.02 * self.regularization_cost + 0.1 * self.smooth_cost)
+            self.opti.minimize(50 * self.translational_cost + self.rotation_cost + 0.02 * self.regularization_cost + 0.4 * self.smooth_cost)
 
         opts = {
             'ipopt':{
